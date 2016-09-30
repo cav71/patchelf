@@ -18,12 +18,10 @@ no_rpath_arch_TESTS = \
   no-rpath-sh4.sh \
   no-rpath-sparc.sh
 
-XFAIL_TESTS = no-rpath-ia64.sh
-
 src_TESTS = \
   plain-fail.sh plain-run.sh shrink-rpath.sh set-interpreter-short.sh \
   set-interpreter-long.sh set-rpath.sh no-rpath.sh big-dynstr.sh \
-  set-rpath-library.sh soname.sh
+  set-rpath-library.sh soname.sh shrink-rpath-with-allowed-prefixes.sh
 
 build_TESTS = \
   $(no_rpath_arch_TESTS)
@@ -94,7 +92,7 @@ libbar_scoped_so_SOURCES = bar.c
 libbar_scoped_so_LDFLAGS = $(LDFLAGS_sharedlib)
 
 libsimple_so_SOURCES = simple.c
-libsimple_so_LDFLAGS = $(LDFLAGS_sharedlib) -Wl,-soname,libsimple.so.1.0
+libsimple_so_LDFLAGS = $(LDFLAGS_sharedlib)
 
 no_rpath_SOURCES = no-rpath.c
 # no -fpic for no-rpath.o
